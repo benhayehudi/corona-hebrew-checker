@@ -17,10 +17,10 @@ class Messenger < ApplicationRecord
 
   def self.update_message
     <<~HEREDOC
-    אתר משרד הבריאות בנושא נגיף קורונה עודכן ביום האחרון
-    לקבלת המידע החדש בקר אתר
+    There has been an update to the Ministry of Health Corona Virus Website
+    To see the latest information visit:
     https://www.health.gov.il/Subjects/disease/corona/Pages/default.aspx
-    להסרה השב עם מספר 1
+    To be removed from the list please respond with "1".
     HEREDOC
   end
   
@@ -28,7 +28,7 @@ class Messenger < ApplicationRecord
     client.sms.send(
       from: ENV['FROM_NUMBER'],
       to: to,
-      text: 'הוסרת מהרשימה'
+      text: 'You have been removed.'
     )
   end
 end

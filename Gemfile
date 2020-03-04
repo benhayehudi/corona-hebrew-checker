@@ -19,7 +19,6 @@ gem 'uglifier', '>= 1.3.0'
 gem 'nexmo'
 gem 'dotenv-rails'
 gem 'httparty'
-gem 'httparty_with_cookies'
 gem 'whenever', require: false
 
 # Use CoffeeScript for .coffee assets and views
