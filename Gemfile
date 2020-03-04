@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.1'
+ruby '2.5.7'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.1'
@@ -19,6 +19,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'nexmo'
 gem 'dotenv-rails'
 gem 'httparty'
+gem 'httparty_with_cookies'
+gem 'whenever', require: false
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

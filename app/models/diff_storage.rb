@@ -1,0 +1,2 @@
+class DiffStorage < ApplicationRecord
+end

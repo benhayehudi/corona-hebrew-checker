@@ -1,15 +1,19 @@
 require 'HTTParty'
+require 'httparty_with_cookies'
 require 'nokogiri'
 
 class Scraper < ApplicationRecord
+  include HTTParty_with_cookies
 
   def self.call(url)
     self.get_url(url)
   end
   
   def self.get_url(url)
-    doc = HTTParty.get('https://www.health.gov.il/Subjects/disease/corona/Pages/default.aspx')
+    doc = HTTParty.get(url, :verify => false)
+    puts doc
     parsed_page ||= Nokogiri::HTML(doc)
+    puts parsed_page
 
     self.parse_text(parsed_page)
   end

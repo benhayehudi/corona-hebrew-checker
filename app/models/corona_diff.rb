@@ -11,5 +11,6 @@ class CoronaDiff < ApplicationRecord
       Messenger.send_update_message(Recipient.all) if (last_snapshot != new_snapshot && Recipient.any?)
     else
       Scraper.call(self.url)
+    end
   end
 end
