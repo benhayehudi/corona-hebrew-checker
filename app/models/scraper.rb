@@ -1,5 +1,5 @@
 require 'httparty'
-require 'Nokogiri'
+require 'nokogiri'
 
 class Scraper < ApplicationRecord
   def self.call(url)
