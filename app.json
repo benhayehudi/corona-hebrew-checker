@@ -1,0 +1,18 @@
+{
+  "name": "Corona Virus Israeli Health Ministry Update Diff Checker",
+  "description": "Check for health updates and send an SMS if there are any",
+  "repository": "https://github.com/benhayehudi/corona-hebrew-checker",
+  "keywords": ["ruby", "rails", "sms"],
+  "buildpacks": [{"url": "heroku/ruby"}],
+  "env": {
+    "NEXMO_API_KEY": {
+      "description": "Your Nexmo API key"
+    },
+    "NEXMO_API_SECRET": {
+      "description": "Your Nexmo API secret"
+    },
+    "FROM_NUMBER": {
+      "description": "Your Nexmo provisioned virtual phone number"
+    }
+  }
+}
