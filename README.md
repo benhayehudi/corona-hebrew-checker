@@ -1,5 +1,7 @@
 # Corona Virus Health Advisory Diff Checker with SMS
 
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
 This is a Ruby on Rails application that uses the [Nexmo SMS API](https://developer.nexmo.com) to check the [Israeli Ministry of Health](https://www.health.gov.il/Subjects/disease/corona/Pages/default.aspx) Corona Virus status page for any diffs in the past 24 hours. If there is a diff it sends out an update message by SMS to all those subscribed.
 
 * Users can add themselves to the SMS list by visiting the top-level domain of the app and filling out the form.
@@ -7,7 +9,7 @@ This is a Ruby on Rails application that uses the [Nexmo SMS API](https://develo
 
 ## Installation and Usage
 
-To use this application:
+To use this application locally:
 
 * Clone the repository locally
 * Run `bundle install`
@@ -16,6 +18,12 @@ To use this application:
 * To start the Rails server run `bundle exec rails s`
 
 ** Note: The Nexmo SMS API needs an externally accessible URL to send data to and interact with. For development purposes, [ngrok](https://ngrok.io) is a good tool. **
+
+To use this application on Herokuu:
+
+* Click the `Deploy to Heroku` button on the top
+* Set up the environment variables when prompted and complete set up
+* Once it is set up, schedule the Rake `scraper:check_site_update` task using the [Heroku Scheduler](https://devcenter.heroku.com/articles/scheduler)
 
 ### Environment Variables
 
