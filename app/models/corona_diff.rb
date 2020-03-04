@@ -1,7 +1,7 @@
 class CoronaDiff < ApplicationRecord
 
   def self.url
-    'https://www.health.gov.il/Subjects/disease/corona/Pages/default.aspx'
+    'https://govextra.gov.il/ministry-of-health/corona/corona-virus/'
   end
 
   def self.check_last_record

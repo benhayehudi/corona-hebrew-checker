@@ -1,5 +1,6 @@
 require 'HTTParty'
 require 'Nokogiri'
+
 class Scraper < ApplicationRecord
   def self.call(url)
     self.get_url(url)
@@ -7,18 +8,17 @@ class Scraper < ApplicationRecord
   
   def self.get_url(url)
     doc = HTTParty.get(url)
-    parsed_page ||= Nokogiri::HTML(doc)
-    self.parse_text(parsed_page)
+    only_text ||= Nokogiri::HTML(doc).text
+    self.check_text(only_text)
   end
 
-  def self.parse_text(data)
-    text = data.css('.ContentLayoutMiddleSide').children.map{|v| v.text}
-    if text == []
+  def self.check_text(data)
+    if data == '' || data == nil
       puts "There was no text received from the web scrape."
       exit
     else
       puts "There was data in the text received from the web scrape."
-      self.store_text(text)
+      self.store_text(data)
     end
   end
 
