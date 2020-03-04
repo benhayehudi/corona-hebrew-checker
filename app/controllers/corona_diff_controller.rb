@@ -10,6 +10,7 @@ class CoronaDiffController < ApplicationController
     else
       flash[:alert] = "Form did not save. Please fix and try again."
     end
+    redirect_to '/'
   end
   
   def event
