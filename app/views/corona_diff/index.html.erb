@@ -1,0 +1,19 @@
+<h2>Corona News Updates Diff Comparison</h2>
+<p>
+This is a free service that will check the Israeli Health Ministry's website on Covid-19 (Corona Virus) and check for any updates every 12 hours. If there is an update it will send you a text message at the number you provide. 
+</p>
+<p>
+SMS messages are sent using the <a href="https://developer.nexmo.com">Nexmo SMS API</a>.
+</p>
+
+<% flash.each do |type, msg| %>
+  <div>
+    <%= msg %>
+  </div>
+<% end %>
+
+<%= form_with model: @recipient, url: "/recipient/new" do |f| %>
+  <%= f.telephone_field :number %>
+  <%= f.hidden_field :subscribed, value: true %>
+  <%= f.submit "Add Number" %>
+<% end %>
