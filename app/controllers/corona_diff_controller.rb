@@ -16,7 +16,7 @@ class CoronaDiffController < ApplicationController
     if params[:text] == '1'
       recipient = Recipient.find_by(number: params[:msisdn])
       if recipient
-        if recipient.update (subscribed: false)
+        if recipient.update(subscribed: false)
           Messenger.send_removal_message(params[:msisdn])
         end
       end
