@@ -17,9 +17,8 @@ class Messenger < ApplicationRecord
 
   def self.update_message
     <<~HEREDOC
-    There has been an update to the Ministry of Health Corona Virus Website
-    To see the latest information visit:
-    https://www.health.gov.il/Subjects/disease/corona/Pages/default.aspx
+    There has been an update to the Israeli Ministry of Health Corona Virus Website.
+    To see the latest information visit: https://govextra.gov.il/ministry-of-health/corona/corona-virus/
     To be removed from the list please respond with "1".
     HEREDOC
   end
