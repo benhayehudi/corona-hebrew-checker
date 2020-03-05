@@ -4,11 +4,18 @@ class CoronaDiffController < ApplicationController
   end
 
   def create
-    @recipient = Recipient.new(recipient_params)
-    if @recipient.save
-      flash[:notice] = "Phone number saved successfully."
-    else
-      flash[:alert] = "Form did not save. Please fix and try again."
+    if params[:number].start_with?('972')
+      @recipient = Recipient.new(
+        subscribed: params[:subscribed], 
+        number: Messenger.validate_number(params[:number])
+      )
+      if @recipient.save
+        flash[:notice] = "Phone number saved successfully."
+      else
+        flash[:alert] = "Form did not save. Please fix and try again."
+      end
+    else 
+      flash[:alert] = "Number must be an Israeli phone number, beginning with country code of 972."
     end
     redirect_to '/'
   end
@@ -25,11 +32,5 @@ class CoronaDiffController < ApplicationController
     puts params
 
     head :no_content
-  end
-
-  private
-
-  def recipient_params
-    params.permit(:number, :subscribed)
   end
 end

@@ -30,4 +30,15 @@ class Messenger < ApplicationRecord
       text: 'You have been removed.'
     )
   end
+
+  def self.validate_number(phone)
+    phone = phone.gsub(/([-() ])/, '') # remove dashes and parenthesis
+    phone_split = phone.split('')
+    if phone_split[3] == '0'
+      phone_split.delete_at(3)
+    end
+    phone = phone_split.join('')
+
+    return phone
+  end
 end
