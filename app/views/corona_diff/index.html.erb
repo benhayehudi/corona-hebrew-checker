@@ -18,7 +18,7 @@ SMS messages are sent using the <a href="https://developer.nexmo.com">Nexmo SMS 
 <% end %>
 
 <%= form_with model: @recipient, url: "/recipient/new" do |f| %>
-  <%= f.telephone_field :number %>
+  <%= f.telephone_field :number, :placeholder => '972555555555' %>
   <%= f.hidden_field :subscribed, value: true %>
   <%= f.submit "Add Number" %>
 <% end %>
