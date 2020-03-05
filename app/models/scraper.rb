@@ -28,5 +28,7 @@ class Scraper < ApplicationRecord
     if record.save
       puts "Record Updated Successfully"
     end
+    @record = record
+    return @record
   end
 end
