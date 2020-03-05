@@ -8,8 +8,14 @@ class CoronaDiff < ApplicationRecord
     if DiffStorage.any?
       last_snapshot = DiffStorage.last
       new_snapshot = Scraper.call(self.url)
-      Messenger.send_update_message(Recipient.all) if (last_snapshot != new_snapshot && Recipient.any?)
+      if (last_snapshot != new_snapshot && Recipient.any?)
+        puts "There is a difference in the Health Ministry Website and there are subscribers"
+        Messenger.send_update_message(Recipient.all)
+      else
+        puts "There is no difference in the Health Ministry Website and/or there are no subscribers"
+      end
     else
+      puts "Creating first scraped snapshot"
       Scraper.call(self.url)
     end
   end

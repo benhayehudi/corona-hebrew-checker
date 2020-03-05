@@ -3,7 +3,7 @@ require 'nexmo'
 class Messenger < ApplicationRecord
   def self.send_update_message(recipients)
     client = Nexmo::Client.new
-
+    puts "Sending Message to Each Recipient"
     recipients.each do |recipient|
       if recipient.subscribed == true
         client.sms.send(
@@ -11,6 +11,7 @@ class Messenger < ApplicationRecord
           to: recipient.number,
           text: self.update_message
         )
+        puts "Sent message to #{recipient.number}"
       end
     end
   end
