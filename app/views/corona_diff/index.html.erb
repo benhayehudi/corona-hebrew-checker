@@ -1,6 +1,11 @@
-<h2>Corona News Updates Diff Comparison</h2>
+<h2>Corona Israeli Health Updates Diff Comparison</h2>
 <p>
-This is a free service that will check the Israeli Health Ministry's website on Covid-19 (Corona Virus) and check for any updates every 12 hours. If there is an update it will send you a text message at the number you provide. 
+This is a free service that will check the <a href="https://govextra.gov.il/ministry-of-health/corona/corona-virus/">Israeli Health Ministry's website on Covid-19 (Corona Virus)</a> and check for any updates once a day. If there is an update it will send you a text message at the number you provide. 
+
+Note: This service only works for <b>Israeli phone numbers</b> with a country code of 972.
+</p>
+<p>
+To remove yourself from the SMS list, reply to the text message you receive with the number "1".
 </p>
 <p>
 SMS messages are sent using the <a href="https://developer.nexmo.com">Nexmo SMS API</a>.
@@ -17,3 +22,12 @@ SMS messages are sent using the <a href="https://developer.nexmo.com">Nexmo SMS 
   <%= f.hidden_field :subscribed, value: true %>
   <%= f.submit "Add Number" %>
 <% end %>
+
+<p></p>
+
+<p>
+Created by <a href="https://www.bengreenberg.dev">Ben Greenberg</a>.
+</p>
+<p>
+View the source code on <a href="https://github.com/benhayehudi/corona-hebrew-checker">GitHub</a>.
+</p>
