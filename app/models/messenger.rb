@@ -2,7 +2,10 @@ require 'nexmo'
 
 class Messenger < ApplicationRecord
   def self.send_update_message(recipients)
-    client = Nexmo::Client.new
+    client = Nexmo::Client.new(
+      api_key: ENV['NEXMO_API_KEY'],
+      api_secret: ENV['NEXMO_API_SECRET']
+    )
     puts "Sending Message to Each Recipient"
     recipients.each do |recipient|
       if recipient.subscribed == true
