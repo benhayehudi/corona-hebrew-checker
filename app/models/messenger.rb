@@ -1,15 +1,16 @@
 require 'nexmo'
 
 class Messenger < ApplicationRecord
+  @client = Nexmo::Client.new(
+    api_key: ENV['NEXMO_API_KEY'],
+    api_secret: ENV['NEXMO_API_SECRET']
+  )
+
   def self.send_update_message(recipients)
-    client = Nexmo::Client.new(
-      api_key: ENV['NEXMO_API_KEY'],
-      api_secret: ENV['NEXMO_API_SECRET']
-    )
     puts "Sending Message to Each Recipient"
     recipients.each do |recipient|
       if recipient.subscribed == true
-        client.sms.send(
+        @client.sms.send(
           from: ENV['FROM_NUMBER'],
           to: recipient.number,
           text: self.update_message
@@ -28,7 +29,7 @@ class Messenger < ApplicationRecord
   end
   
   def self.send_removal_message(to)
-    client.sms.send(
+    @client.sms.send(
       from: ENV['FROM_NUMBER'],
       to: to,
       text: 'You have been removed.'
