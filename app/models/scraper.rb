@@ -8,7 +8,8 @@ class Scraper < ApplicationRecord
   
   def self.get_url(url)
     doc = HTTParty.get(url)
-    only_text ||= Nokogiri::HTML(doc).text
+    only_text ||= Nokogiri::HTML(doc).css('.mst-TextHolder').text
+    only_text = only_text.gsub(/\r\n?/, "").strip
     self.check_text(only_text)
   end
 
