@@ -1,5 +1,6 @@
 require 'httparty'
 require 'nokogiri'
+require 'diffy'
 
 class Scraper < ApplicationRecord
   def self.call(url)
